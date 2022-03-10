@@ -1,0 +1,26 @@
+<h1>New Author</h1>
+
+<%= form_with model: @author do |form| %>
+  <div>
+    <h3>Author:</h3><br>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div><hr>
+
+  <div>
+  <%= form.fields_for :book do |book_form| %>
+    <h3>Book:</h3><br>
+    <%= book_form.label :Title %>
+    <%= book_form.text_field :title %>
+
+    <%= book_form.label :published_at %>
+    <%= book_form.text_field :published_at %>
+  <%end%>
+  </div><hr>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %><br>
+
+<button><%= link_to "Back to Home Page", root_path %></button>
